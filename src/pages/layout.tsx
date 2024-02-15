@@ -2,6 +2,8 @@ import { Box, Button } from "@mui/material";
 import { Outlet, Link } from "react-router-dom";
 import HandleButton from "../components/handleButton";
 import Diversity2Icon from "@mui/icons-material/Diversity2";
+import HomeIcon from "@mui/icons-material/Home";
+import EmailIcon from "@mui/icons-material/Email";
 
 const Layout = () => {
   return (
@@ -13,7 +15,7 @@ const Layout = () => {
     >
       <Box
         sx={{
-          backgroundColor: "rgb(187, 143, 206)",
+          backgroundColor: "rgb( 135, 54, 0 )",
           display: "flex",
           height: "100vh",
           width: "20%",
@@ -30,12 +32,16 @@ const Layout = () => {
             sx={{
               width: "100%",
               color: "white",
+              display: "flex",
+              justifyContent: "start",
+              gap: "20px",
               "&:hover": {
                 backgroundColor: "rgba(255, 255, 255, 0.2)",
               },
             }}
             variant="text"
           >
+            <HomeIcon />
             Home
           </Button>
         </Link>
@@ -44,12 +50,16 @@ const Layout = () => {
             sx={{
               width: "100%",
               color: "white",
+              display: "flex",
+              justifyContent: "start",
+              gap: "20px",
               "&:hover": {
                 backgroundColor: "rgba(255, 255, 255, 0.2)",
               },
             }}
             variant="text"
           >
+            <EmailIcon />
             Messages
           </Button>
         </Link>

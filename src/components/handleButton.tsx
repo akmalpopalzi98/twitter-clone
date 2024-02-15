@@ -1,7 +1,9 @@
 import { Button, Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
+import { useState } from "react";
 
 const handleButton = () => {
+  const [clicked, setClicked] = useState(false);
   return (
     <Box sx={{ width: "100%", marginTop: "100px", height: "90%" }}>
       <Button
@@ -11,10 +13,16 @@ const handleButton = () => {
           display: "flex",
           justifyContent: "center",
           gap: "20px",
+          "&:hover": {
+            backgroundColor: "rgba(255, 255, 255, 0.2)",
+          },
+        }}
+        onClick={() => {
+          setClicked(!clicked);
         }}
       >
         <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-        handle
+        @handle
       </Button>
     </Box>
   );
