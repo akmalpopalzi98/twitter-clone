@@ -6,6 +6,7 @@ import HomePage from "./pages/homePage";
 import LayOut from "./pages/layout";
 import ProfilePage from "./pages/profilePage";
 import MessagesPage from "./pages/messagesPage";
+import "./app.css";
 
 function App() {
   return (
