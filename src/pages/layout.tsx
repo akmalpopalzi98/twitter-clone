@@ -12,14 +12,14 @@ const Layout = () => {
       sx={{
         display: "flex",
         backgroundColor: "rgb(52, 73, 94)",
+        height: "100vh",
       }}
     >
       <Box
         sx={{
-          backgroundColor: "rgb( 23, 32, 42  )",
+          // backgroundColor: "rgb( 23, 32, 42  )",
           display: "flex",
-          height: "100vh",
-          width: "20%",
+          minWidth: "20%",
           flexDirection: "column",
           justifyContent: "start",
           paddingTop: "20px",

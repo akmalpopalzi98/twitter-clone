@@ -4,14 +4,21 @@ const homePage = () => {
   return (
     <Box
       sx={{
+        width: "100%",
         backgroundColor: "rgb( 23, 32, 42  )",
-        marginLeft: "100px",
-        width: "40%",
       }}
     >
-      <Typography sx={{ color: "white", margin: "10px 0 20px 20px" }}>
-        Home
-      </Typography>
+      <Box
+        sx={{
+          width: "50%",
+          marginLeft: "100px",
+          height: "100%",
+          backgroundColor: "green",
+          padding: "1px",
+        }}
+      >
+        <Typography sx={{ marginTop: "20px" }}>Home</Typography>
+      </Box>
     </Box>
   );
 };
