@@ -11,7 +11,8 @@ const handleButton = () => {
           height: "10%",
           width: "100%",
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "start",
+          color: "white",
           gap: "20px",
           "&:hover": {
             backgroundColor: "rgba(255, 255, 255, 0.2)",
