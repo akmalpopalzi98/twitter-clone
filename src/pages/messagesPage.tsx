@@ -17,7 +17,16 @@ const messagesPage = () => {
           padding: "1px",
         }}
       >
-        <Typography sx={{ marginTop: "20px" }}>Messages</Typography>
+        <Box
+          sx={{
+            height: "5%",
+            borderBottom: "solid white 2px",
+          }}
+        >
+          <Typography sx={{ margin: "20px" }} variant="h6">
+            Messages
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );

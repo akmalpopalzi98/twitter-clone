@@ -1,4 +1,4 @@
-import { Button, Box } from "@mui/material";
+import { Button, Box, Typography } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import { useState } from "react";
 
@@ -23,7 +23,7 @@ const handleButton = () => {
         }}
       >
         <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-        @handle
+        <Typography variant="body1">@handle</Typography>
       </Button>
     </Box>
   );

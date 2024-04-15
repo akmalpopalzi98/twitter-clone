@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import HomePage from "./pages/homePage";
 // import SignUpPage from "./pages/signUpPage";
@@ -8,9 +8,20 @@ import ProfilePage from "./pages/profilePage";
 import MessagesPage from "./pages/messagesPage";
 import "./app.css";
 
+const theme = createTheme({
+  typography: {
+    body1: {
+      fontFamily: "Kanit",
+    },
+    h6: {
+      fontFamily: "Kanit,Serif",
+    },
+  },
+});
+
 function App() {
   return (
-    <Box>
+    <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LayOut />}>
@@ -20,7 +31,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </Box>
+    </ThemeProvider>
   );
 }
 

@@ -17,7 +17,16 @@ const profilePage = () => {
           padding: "1px",
         }}
       >
-        <Typography sx={{ marginTop: "20px" }}>Profile</Typography>
+        <Box
+          sx={{
+            height: "5%",
+            borderBottom: "solid white 2px",
+          }}
+        >
+          <Typography sx={{ margin: "20px" }} variant="h6">
+            Profile
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );

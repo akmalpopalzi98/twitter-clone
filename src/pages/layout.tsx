@@ -11,19 +11,17 @@ const Layout = () => {
     <Box
       sx={{
         display: "flex",
-        backgroundColor: "rgb(52, 73, 94)",
+        backgroundColor: "rgb(136, 78, 160)",
         height: "100vh",
       }}
     >
       <Box
         sx={{
-          // backgroundColor: "rgb( 23, 32, 42  )",
           display: "flex",
           minWidth: "20%",
           flexDirection: "column",
           justifyContent: "start",
           paddingTop: "20px",
-          marginLeft: "50px",
         }}
       >
         <Box
@@ -31,7 +29,7 @@ const Layout = () => {
             width: "100%",
             height: "15%",
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "start",
             alignItems: "center",
           }}
         >
@@ -57,7 +55,7 @@ const Layout = () => {
             variant="text"
           >
             <HomeIcon />
-            Home
+            <Typography variant="body1">Home</Typography>
           </Button>
         </Link>
         <Link to="/messages" style={{ textDecoration: "none" }}>
@@ -75,7 +73,7 @@ const Layout = () => {
             variant="text"
           >
             <EmailIcon />
-            Messages
+            <Typography variant="body1">Messages</Typography>
           </Button>
         </Link>
         <Link to="/profile" style={{ textDecoration: "none" }}>
@@ -93,7 +91,7 @@ const Layout = () => {
             variant="text"
           >
             <AccountBoxIcon />
-            Profile
+            <Typography variant="body1">Profile</Typography>
           </Button>
         </Link>
         <HandleButton />
