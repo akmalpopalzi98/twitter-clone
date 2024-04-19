@@ -12,9 +12,14 @@ const theme = createTheme({
   typography: {
     body1: {
       fontFamily: "Kanit",
+      color: "white",
     },
     h6: {
       fontFamily: "Kanit,Serif",
+      color: "white",
+    },
+    body2: {
+      color: "white",
     },
   },
 });

@@ -11,7 +11,7 @@ const Layout = () => {
     <Box
       sx={{
         display: "flex",
-        backgroundColor: "rgb(136, 78, 160)",
+        backgroundColor: "rgb( 74, 35, 90 )",
         height: "100vh",
       }}
     >
