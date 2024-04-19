@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
+import HandleButton from "./handleButton";
 
 const HomepageSideBar = () => {
   const TrendingListItem = ({
@@ -62,6 +63,28 @@ const HomepageSideBar = () => {
           </Typography>
         </Box>
         {renderedItems}
+      </Box>
+
+      <Box
+        sx={{
+          backgroundColor: "rgb( 39, 55, 70 )",
+          height: "15%",
+          borderRadius: "10px",
+        }}
+      >
+        <Box
+          sx={{
+            borderBottom: "solid white 2px",
+            height: "35%",
+          }}
+        >
+          <Typography sx={{ margin: "5px" }} variant="body1">
+            Suggested Users
+          </Typography>
+          <HandleButton
+            styles={{ height: "100%", marginTop: "40px", suggestedUser: true }}
+          />
+        </Box>
       </Box>
     </Box>
   );

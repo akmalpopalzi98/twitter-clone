@@ -94,7 +94,9 @@ const Layout = () => {
             <Typography variant="body1">Profile</Typography>
           </Button>
         </Link>
-        <HandleButton />
+        <HandleButton
+          styles={{ height: "10%", marginTop: "100px", suggestedUser: false }}
+        />
       </Box>
       <Outlet />
     </Box>
