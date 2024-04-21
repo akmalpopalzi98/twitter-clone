@@ -47,7 +47,7 @@ const HomepageSideBar = () => {
       <TextField sx={{ width: "100%", marginTop: "10px" }} label="Search" />
       <Box
         sx={{
-          backgroundColor: "rgb( 39, 55, 70 )",
+          backgroundColor: "rgb( 23, 32, 42  )",
           height: "40%",
           borderRadius: "10px",
         }}
@@ -67,7 +67,7 @@ const HomepageSideBar = () => {
 
       <Box
         sx={{
-          backgroundColor: "rgb( 39, 55, 70 )",
+          backgroundColor: "rgb(  23, 32, 42  )",
           height: "15%",
           borderRadius: "10px",
         }}

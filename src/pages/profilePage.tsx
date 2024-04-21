@@ -5,7 +5,6 @@ const profilePage = () => {
     <Box
       sx={{
         width: "100%",
-        backgroundColor: "rgb( 23, 32, 42  )",
       }}
     >
       <Box
@@ -13,7 +12,7 @@ const profilePage = () => {
           width: "50%",
           marginLeft: "80px",
           height: "100%",
-          backgroundColor: "green",
+          backgroundColor: "rgb( 23, 32, 42 )",
           padding: "1px",
         }}
       >

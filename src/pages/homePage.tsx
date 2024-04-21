@@ -16,7 +16,7 @@ const homePage = () => {
           width: "50%",
           marginLeft: "80px",
           // height: "100%",
-          backgroundColor: "rgb( 39, 55, 70 )",
+          backgroundColor: "rgb( 23, 32, 42 )",
           padding: "1px",
           borderRadius: "10px",
         }}
