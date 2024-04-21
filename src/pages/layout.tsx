@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import { Outlet, Link } from "react-router-dom";
 import HandleButton from "../components/handleButton";
-import Diversity2Icon from "@mui/icons-material/Diversity2";
+import FlutterDashIcon from "@mui/icons-material/FlutterDash";
 import HomeIcon from "@mui/icons-material/Home";
 import EmailIcon from "@mui/icons-material/Email";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
@@ -33,10 +33,11 @@ const Layout = () => {
             alignItems: "center",
           }}
         >
-          <Diversity2Icon
+          <FlutterDashIcon
             sx={{
               color: "white",
               padding: "20px",
+              height: "100%",
             }}
           />
         </Box>
