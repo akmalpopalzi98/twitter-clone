@@ -11,7 +11,7 @@ const profilePage = () => {
       <Box
         sx={{
           width: "50%",
-          marginLeft: "100px",
+          marginLeft: "80px",
           height: "100%",
           backgroundColor: "green",
           padding: "1px",

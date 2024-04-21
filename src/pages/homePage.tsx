@@ -6,7 +6,7 @@ const homePage = () => {
     <Box
       sx={{
         width: "100%",
-        backgroundColor: "green",
+        // backgroundColor: "green",
         display: "flex",
         gap: "100px",
       }}
@@ -14,7 +14,7 @@ const homePage = () => {
       <Box
         sx={{
           width: "50%",
-          marginLeft: "100px",
+          marginLeft: "80px",
           // height: "100%",
           backgroundColor: "rgb( 39, 55, 70 )",
           padding: "1px",

@@ -36,7 +36,7 @@ const handleButton = ({
         }}
       >
         <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-        <Typography variant="body1">@handle</Typography>
+        <Typography variant="body2">@handle</Typography>
       </Button>
     </Box>
   );

@@ -29,7 +29,7 @@ const Layout = () => {
             width: "100%",
             height: "15%",
             display: "flex",
-            justifyContent: "start",
+            justifyContent: "center",
             alignItems: "center",
           }}
         >
@@ -47,6 +47,7 @@ const Layout = () => {
               color: "white",
               display: "flex",
               justifyContent: "start",
+              paddingLeft: "20px",
               gap: "20px",
               "&:hover": {
                 backgroundColor: "rgba(255, 255, 255, 0.2)",
@@ -55,7 +56,7 @@ const Layout = () => {
             variant="text"
           >
             <HomeIcon />
-            <Typography variant="body1">Home</Typography>
+            <Typography variant="h6">Home</Typography>
           </Button>
         </Link>
         <Link to="/messages" style={{ textDecoration: "none" }}>
@@ -65,6 +66,8 @@ const Layout = () => {
               color: "white",
               display: "flex",
               justifyContent: "start",
+              paddingLeft: "20px",
+
               gap: "20px",
               "&:hover": {
                 backgroundColor: "rgba(255, 255, 255, 0.2)",
@@ -73,7 +76,7 @@ const Layout = () => {
             variant="text"
           >
             <EmailIcon />
-            <Typography variant="body1">Messages</Typography>
+            <Typography variant="h6">Messages</Typography>
           </Button>
         </Link>
         <Link to="/profile" style={{ textDecoration: "none" }}>
@@ -83,6 +86,8 @@ const Layout = () => {
               color: "white",
               display: "flex",
               justifyContent: "start",
+              paddingLeft: "20px",
+
               gap: "20px",
               "&:hover": {
                 backgroundColor: "rgba(255, 255, 255, 0.2)",
@@ -91,7 +96,7 @@ const Layout = () => {
             variant="text"
           >
             <AccountBoxIcon />
-            <Typography variant="body1">Profile</Typography>
+            <Typography variant="h6">Profile</Typography>
           </Button>
         </Link>
         <HandleButton
