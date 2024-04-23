@@ -19,7 +19,7 @@ const theme = createTheme({
       color: "white",
     },
     body2: {
-      color: "white",
+      color: "grey",
     },
   },
 });

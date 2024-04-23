@@ -48,7 +48,7 @@ const HomepageSideBar = () => {
       <Box
         sx={{
           backgroundColor: "rgb( 23, 32, 42  )",
-          height: "40%",
+          height: "38%",
           borderRadius: "10px",
         }}
       >

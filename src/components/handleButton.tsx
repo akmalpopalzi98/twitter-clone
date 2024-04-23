@@ -35,7 +35,7 @@ const handleButton = ({
           setClicked(!clicked);
         }}
       >
-        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+        <Avatar src="/static/images/avatar/1.jpg" />
         <Typography variant="body2">@handle</Typography>
       </Button>
     </Box>
