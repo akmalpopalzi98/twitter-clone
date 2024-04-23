@@ -1,8 +1,7 @@
 from fastapi import FastAPI
+from backend.routes import activities
 
 app = FastAPI()
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+app.add_route(activities.router)
