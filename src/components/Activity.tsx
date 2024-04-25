@@ -1,4 +1,5 @@
 import { Avatar, Box, Typography } from "@mui/material";
+import ActivityButtons from "./ActivityButtons";
 
 const Activity = () => {
   return (
@@ -35,7 +36,9 @@ const Activity = () => {
           <Typography variant="body2">30m</Typography>
         </Box>
       </Box>
-      <Box sx={{ backgroundColor: "brown", height: "40%" }}>Buttons</Box>
+      <Box sx={{ height: "30%", marginTop: "10px" }}>
+        <ActivityButtons />
+      </Box>
     </Box>
   );
 };
