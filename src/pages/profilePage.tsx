@@ -4,14 +4,29 @@ const profilePage = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "rgb( 23, 32, 42  )",
-        marginLeft: "100px",
-        width: "40%",
+        width: "100%",
       }}
     >
-      <Typography sx={{ color: "white", margin: "10px 0 20px 20px" }}>
-        Profile
-      </Typography>
+      <Box
+        sx={{
+          width: "50%",
+          marginLeft: "80px",
+          height: "100%",
+          backgroundColor: "rgb( 23, 32, 42 )",
+          padding: "1px",
+        }}
+      >
+        <Box
+          sx={{
+            height: "5%",
+            borderBottom: "solid white 2px",
+          }}
+        >
+          <Typography sx={{ margin: "20px" }} variant="h6">
+            Profile
+          </Typography>
+        </Box>
+      </Box>
     </Box>
   );
 };

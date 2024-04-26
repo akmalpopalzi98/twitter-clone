@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import { Outlet, Link } from "react-router-dom";
 import HandleButton from "../components/handleButton";
-import Diversity2Icon from "@mui/icons-material/Diversity2";
+import FlutterDashIcon from "@mui/icons-material/FlutterDash";
 import HomeIcon from "@mui/icons-material/Home";
 import EmailIcon from "@mui/icons-material/Email";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
@@ -11,19 +11,17 @@ const Layout = () => {
     <Box
       sx={{
         display: "flex",
-        backgroundColor: "rgb(52, 73, 94)",
+        backgroundColor: "rgb( 74, 35, 90 )",
+        height: "100vh",
       }}
     >
       <Box
         sx={{
-          backgroundColor: "rgb( 23, 32, 42  )",
           display: "flex",
-          height: "100vh",
-          width: "20%",
+          minWidth: "20%",
           flexDirection: "column",
           justifyContent: "start",
           paddingTop: "20px",
-          marginLeft: "50px",
         }}
       >
         <Box
@@ -35,10 +33,11 @@ const Layout = () => {
             alignItems: "center",
           }}
         >
-          <Diversity2Icon
+          <FlutterDashIcon
             sx={{
               color: "white",
               padding: "20px",
+              height: "100%",
             }}
           />
         </Box>
@@ -49,6 +48,7 @@ const Layout = () => {
               color: "white",
               display: "flex",
               justifyContent: "start",
+              paddingLeft: "20px",
               gap: "20px",
               "&:hover": {
                 backgroundColor: "rgba(255, 255, 255, 0.2)",
@@ -57,7 +57,7 @@ const Layout = () => {
             variant="text"
           >
             <HomeIcon />
-            Home
+            <Typography variant="h6">Home</Typography>
           </Button>
         </Link>
         <Link to="/messages" style={{ textDecoration: "none" }}>
@@ -67,6 +67,8 @@ const Layout = () => {
               color: "white",
               display: "flex",
               justifyContent: "start",
+              paddingLeft: "20px",
+
               gap: "20px",
               "&:hover": {
                 backgroundColor: "rgba(255, 255, 255, 0.2)",
@@ -75,7 +77,7 @@ const Layout = () => {
             variant="text"
           >
             <EmailIcon />
-            Messages
+            <Typography variant="h6">Messages</Typography>
           </Button>
         </Link>
         <Link to="/profile" style={{ textDecoration: "none" }}>
@@ -85,6 +87,8 @@ const Layout = () => {
               color: "white",
               display: "flex",
               justifyContent: "start",
+              paddingLeft: "20px",
+
               gap: "20px",
               "&:hover": {
                 backgroundColor: "rgba(255, 255, 255, 0.2)",
@@ -93,10 +97,12 @@ const Layout = () => {
             variant="text"
           >
             <AccountBoxIcon />
-            Profile
+            <Typography variant="h6">Profile</Typography>
           </Button>
         </Link>
-        <HandleButton />
+        <HandleButton
+          styles={{ height: "10%", marginTop: "100px", suggestedUser: false }}
+        />
       </Box>
       <Outlet />
     </Box>
