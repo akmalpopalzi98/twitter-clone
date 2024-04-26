@@ -1,7 +1,9 @@
 import { Avatar, Box, Typography } from "@mui/material";
 import ActivityButtons from "./ActivityButtons";
 
-const Activity = () => {
+import { ActivityType } from "../types";
+
+const Activity = ({ activityItem }: { activityItem: ActivityType }) => {
   return (
     <Box
       sx={{
@@ -9,6 +11,7 @@ const Activity = () => {
         minHeight: "120px",
         maxHeight: "300px",
         position: "relative",
+        marginTop: "10px",
       }}
     >
       <Box
@@ -26,13 +29,12 @@ const Activity = () => {
             minHeight: "40%",
             minWidth: "70%",
             maxWidth: "80%",
-            backgroundColor: "gold",
             wordWrap: "break-word",
           }}
         >
-          <Typography variant="body1">Akmal Popalzi</Typography>
-          <Typography variant="body2">@akmal98</Typography>
-          <Typography variant="body1">Cloud is fun!</Typography>
+          <Typography variant="body1">{activityItem.name}</Typography>
+          <Typography variant="body2">{activityItem.handle}</Typography>
+          <Typography variant="body1">{activityItem.message}</Typography>
         </Box>
         <Box
           sx={{
@@ -43,8 +45,8 @@ const Activity = () => {
             right: 20,
           }}
         >
-          <Typography variant="body1">0m ago</Typography>
-          <Typography variant="body2">30m</Typography>
+          <Typography variant="body1">{activityItem.created_at}</Typography>
+          <Typography variant="body2">{activityItem.expires_at}</Typography>
         </Box>
       </Box>
       <Box sx={{ height: "30%", marginTop: "10px" }}>
