@@ -2,10 +2,12 @@ import { Box, Typography } from "@mui/material";
 import HomepageSideBar from "../components/HomepageSideBar";
 import Activity from "../components/Activity";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { ActivityType } from "../types";
+import { IconHighlightContext } from "../context/IconHighlightContext";
 
 const homePage = () => {
+  const { setIcon } = useContext(IconHighlightContext);
   const [activityList, setActivityList] = useState([]);
   const fetchActivities = async () => {
     try {
@@ -22,6 +24,7 @@ const homePage = () => {
 
   useEffect(() => {
     fetchActivities();
+    setIcon("home");
   }, []);
   return (
     <Box

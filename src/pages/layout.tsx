@@ -5,8 +5,12 @@ import FlutterDashIcon from "@mui/icons-material/FlutterDash";
 import HomeIcon from "@mui/icons-material/Home";
 import EmailIcon from "@mui/icons-material/Email";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import { useContext } from "react";
+import { IconHighlightContext } from "../context/IconHighlightContext";
 
 const Layout = () => {
+  const { icon } = useContext(IconHighlightContext);
+  console.log(icon);
   return (
     <Box
       sx={{
