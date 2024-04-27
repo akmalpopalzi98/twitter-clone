@@ -10,7 +10,6 @@ import { IconHighlightContext } from "../context/IconHighlightContext";
 
 const Layout = () => {
   const { icon } = useContext(IconHighlightContext);
-  console.log(icon);
   return (
     <Box
       sx={{
@@ -53,6 +52,7 @@ const Layout = () => {
               display: "flex",
               justifyContent: "start",
               paddingLeft: "20px",
+              backgroundColor: icon == "home" ? "orange" : "none",
               gap: "20px",
               "&:hover": {
                 backgroundColor: "rgba(255, 255, 255, 0.2)",
@@ -72,6 +72,7 @@ const Layout = () => {
               display: "flex",
               justifyContent: "start",
               paddingLeft: "20px",
+              backgroundColor: icon == "messages" ? "orange" : "none",
 
               gap: "20px",
               "&:hover": {
@@ -92,6 +93,7 @@ const Layout = () => {
               display: "flex",
               justifyContent: "start",
               paddingLeft: "20px",
+              backgroundColor: icon == "profile" ? "orange" : "none",
 
               gap: "20px",
               "&:hover": {
