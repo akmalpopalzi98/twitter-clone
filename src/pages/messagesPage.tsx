@@ -12,7 +12,6 @@ const messagesPage = () => {
     <Box
       sx={{
         width: "100%",
-        // backgroundColor: "rgb( 23, 32, 42  )",
       }}
     >
       <Box
