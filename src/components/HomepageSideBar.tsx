@@ -2,6 +2,8 @@ import { Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import HandleButton from "./handleButton";
+import SignInButton from "./SignInButton";
+import SignUpButton from "./SignUpButton";
 
 const HomepageSideBar = () => {
   const TrendingListItem = ({
@@ -86,6 +88,8 @@ const HomepageSideBar = () => {
           />
         </Box>
       </Box>
+      <SignInButton />
+      <SignUpButton />
     </Box>
   );
 };

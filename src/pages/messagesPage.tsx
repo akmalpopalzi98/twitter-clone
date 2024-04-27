@@ -1,6 +1,13 @@
 import { Box, Typography } from "@mui/material";
+import { IconHighlightContext } from "../context/IconHighlightContext";
+import { useContext, useEffect } from "react";
 
 const messagesPage = () => {
+  const { setIcon } = useContext(IconHighlightContext);
+
+  useEffect(() => {
+    setIcon("messages");
+  }, []);
   return (
     <Box
       sx={{
