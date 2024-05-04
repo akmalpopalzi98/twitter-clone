@@ -21,9 +21,18 @@ const signUpPage = () => {
           borderRadius: "20px",
         }}
       >
-        <Typography sx={{ textAlign: "center" }}>
-          Enter a valid email address
-        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Typography sx={{ textAlign: "center" }}>
+            Enter a valid email address
+          </Typography>
+          <input style={{ width: "20%", marginTop: "10px" }} />
+        </Box>
       </Box>
     </Box>
   );
