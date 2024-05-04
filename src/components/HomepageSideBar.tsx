@@ -4,8 +4,13 @@ import Box from "@mui/material/Box";
 import HandleButton from "./handleButton";
 import SignInButton from "./SignInButton";
 import SignUpButton from "./SignUpButton";
+import { useContext } from "react";
+import { AuthenticationContext } from "../context/AuthenticationContext";
 
 const HomepageSideBar = () => {
+  const { loggedIn } = useContext(AuthenticationContext);
+  console.log(loggedIn);
+
   const TrendingListItem = ({
     trendingData,
   }: {
@@ -88,8 +93,12 @@ const HomepageSideBar = () => {
           />
         </Box>
       </Box>
-      <SignInButton />
-      <SignUpButton />
+      {!loggedIn && (
+        <>
+          <SignInButton />
+          <SignUpButton />
+        </>
+      )}
     </Box>
   );
 };

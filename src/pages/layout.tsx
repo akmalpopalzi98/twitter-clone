@@ -7,9 +7,11 @@ import EmailIcon from "@mui/icons-material/Email";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import { useContext } from "react";
 import { IconHighlightContext } from "../context/IconHighlightContext";
+import { AuthenticationContext } from "../context/AuthenticationContext";
 
 const Layout = () => {
   const { icon } = useContext(IconHighlightContext);
+  const { loggedIn } = useContext(AuthenticationContext);
   return (
     <Box
       sx={{
@@ -106,9 +108,11 @@ const Layout = () => {
             <Typography variant="h6">Profile</Typography>
           </Button>
         </Link>
-        <HandleButton
-          styles={{ height: "10%", marginTop: "100px", suggestedUser: false }}
-        />
+        {loggedIn && (
+          <HandleButton
+            styles={{ height: "10%", marginTop: "100px", suggestedUser: false }}
+          />
+        )}
       </Box>
       <Outlet />
     </Box>

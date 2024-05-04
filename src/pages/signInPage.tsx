@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 
-const signInPage = () => {
-  return <Box></Box>;
+const SignInPage = () => {
+  return <Box>Sign In Page</Box>;
 };
 
-export default signInPage;
+export default SignInPage;
