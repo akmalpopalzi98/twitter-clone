@@ -7,21 +7,49 @@ interface AuthenticationContextProviderProps {
 interface AuthenticationContextType {
   loggedIn: boolean;
   setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  signUpUsername: string;
+  setSignUpUsername: React.Dispatch<React.SetStateAction<string>>;
+  signUpEmail: string;
+  setSignUpEmail: React.Dispatch<React.SetStateAction<string>>;
+  signUpNewPassword: string;
+  setSignUpNewPassword: React.Dispatch<React.SetStateAction<string>>;
+  signUpPasswordConfirm: string;
+  setSignUpPasswordConfirm: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const AuthenticationContext = createContext<AuthenticationContextType>({
   loggedIn: false,
   setLoggedIn: () => {},
+  signUpUsername: "",
+  setSignUpUsername: () => {},
+  signUpEmail: "",
+  setSignUpEmail: () => {},
+  signUpNewPassword: "",
+  setSignUpNewPassword: () => {},
+  signUpPasswordConfirm: "",
+  setSignUpPasswordConfirm: () => {},
 });
 
 const AuthenticationContextProvider = ({
   children,
 }: AuthenticationContextProviderProps) => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [signUpUsername, setSignUpUsername] = useState("");
+  const [signUpEmail, setSignUpEmail] = useState("");
+  const [signUpNewPassword, setSignUpNewPassword] = useState("");
+  const [signUpPasswordConfirm, setSignUpPasswordConfirm] = useState("");
 
   const values = {
     loggedIn,
     setLoggedIn,
+    signUpUsername,
+    setSignUpUsername,
+    signUpEmail,
+    setSignUpEmail,
+    signUpNewPassword,
+    setSignUpNewPassword,
+    signUpPasswordConfirm,
+    setSignUpPasswordConfirm,
   };
 
   return (
