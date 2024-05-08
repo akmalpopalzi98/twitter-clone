@@ -19,6 +19,12 @@ const SignUpPage = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log("submit");
+    localStorage.setItem("name", signUpName);
+    localStorage.setItem("username", signUpUsername);
+    localStorage.setItem("email", signUpEmail);
+    localStorage.setItem("password", signUpNewPassword);
+
+    // You can add your form submission logic here
   };
 
   return (
