@@ -1,7 +1,21 @@
 import { Box, Button, Typography } from "@mui/material";
-import { FormEvent } from "react";
+import { FormEvent, useContext } from "react";
+import { AuthenticationContext } from "../context/AuthenticationContext";
 
 const SignUpPage = () => {
+  const {
+    signUpUsername,
+    setSignUpUsername,
+    signUpName,
+    setSignUpName,
+    signUpEmail,
+    setSignUpEmail,
+    signUpNewPassword,
+    setSignUpNewPassword,
+    signUpPasswordConfirm,
+    setSignUpPasswordConfirm,
+  } = useContext(AuthenticationContext);
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log("submit");
@@ -22,7 +36,6 @@ const SignUpPage = () => {
       <Box
         sx={{
           backgroundColor: "rgb(23, 32, 42)",
-          height: "60vh",
           borderRadius: "20px",
           padding: "1px",
           marginTop: "50px",
@@ -41,7 +54,30 @@ const SignUpPage = () => {
           }}
         >
           <Typography sx={{ textAlign: "center" }}>Name</Typography>
-          <input style={{ width: "20%", marginTop: "10px" }} />
+          <input
+            style={{ width: "20%", marginTop: "10px" }}
+            value={signUpName}
+            onChange={(e) => {
+              setSignUpName(e.target.value);
+            }}
+          />
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            marginTop: "20px",
+          }}
+        >
+          <Typography sx={{ textAlign: "center" }}>Email</Typography>
+          <input
+            style={{ width: "20%", marginTop: "10px" }}
+            value={signUpEmail}
+            onChange={(e) => {
+              setSignUpEmail(e.target.value);
+            }}
+          />
         </Box>
         <Box
           sx={{
@@ -52,7 +88,13 @@ const SignUpPage = () => {
           }}
         >
           <Typography sx={{ textAlign: "center" }}>Username</Typography>
-          <input style={{ width: "20%", marginTop: "10px" }} />
+          <input
+            style={{ width: "20%", marginTop: "10px" }}
+            value={signUpUsername}
+            onChange={(e) => {
+              setSignUpUsername(e.target.value);
+            }}
+          />
         </Box>
         <Box
           sx={{
@@ -62,21 +104,15 @@ const SignUpPage = () => {
             marginTop: "20px",
           }}
         >
-          <Typography sx={{ textAlign: "center" }}>
-            Enter a valid email address
-          </Typography>
-          <input style={{ width: "20%", marginTop: "10px" }} />
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            marginTop: "20px",
-          }}
-        >
-          <Typography sx={{ textAlign: "center" }}>New password</Typography>
-          <input style={{ width: "20%", marginTop: "10px" }} />
+          <Typography sx={{ textAlign: "center" }}>New Password</Typography>
+          <input
+            style={{ width: "20%", marginTop: "10px" }}
+            type="password"
+            value={signUpNewPassword}
+            onChange={(e) => {
+              setSignUpNewPassword(e.target.value);
+            }}
+          />
         </Box>
         <Box
           sx={{
@@ -87,7 +123,14 @@ const SignUpPage = () => {
           }}
         >
           <Typography sx={{ textAlign: "center" }}>Confirm Password</Typography>
-          <input style={{ width: "20%", marginTop: "10px" }} />
+          <input
+            style={{ width: "20%", marginTop: "10px" }}
+            type="password"
+            value={signUpPasswordConfirm}
+            onChange={(e) => {
+              setSignUpPasswordConfirm(e.target.value);
+            }}
+          />
         </Box>
         <Button
           sx={{
