@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
-import { FormEvent, useContext } from "react";
+import { FormEvent, useContext, useState } from "react";
 import { AuthenticationContext } from "../context/AuthenticationContext";
 
 const SignUpPage = () => {
@@ -16,16 +16,59 @@ const SignUpPage = () => {
     setSignUpPasswordConfirm,
   } = useContext(AuthenticationContext);
 
+  const [notif, setNotif] = useState("");
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log("submit");
+
+    // Check if any field is blank
+    if (
+      !signUpName ||
+      !signUpEmail ||
+      !signUpUsername ||
+      !signUpNewPassword ||
+      !signUpPasswordConfirm
+    ) {
+      console.log("Please fill in all fields");
+      setNotif("Please fill in all fields");
+      return;
+    }
+
+    // Check if passwords match
+    if (signUpNewPassword !== signUpPasswordConfirm) {
+      console.log("Passwords do not match");
+      setNotif("Passwords do not match");
+      return;
+    }
+
+    // If all validations pass, proceed with submission
+    console.log("Form submitted successfully");
+    setNotif("Account created !");
     localStorage.setItem("name", signUpName);
     localStorage.setItem("username", signUpUsername);
     localStorage.setItem("email", signUpEmail);
     localStorage.setItem("password", signUpNewPassword);
-
-    // You can add your form submission logic here
   };
+
+  if (notif) {
+    setTimeout(() => {
+      setNotif("");
+    }, 7000);
+  }
+
+  const notifAlert = (
+    <Box
+      sx={{
+        backgroundColor: "rgb(23, 32, 42)",
+        width: "40%",
+        borderRadius: "20px",
+        margin: "0 auto",
+        marginTop: "20px",
+      }}
+    >
+      <Typography sx={{ textAlign: "center" }}>{notif}</Typography>
+    </Box>
+  );
 
   return (
     <Box sx={{ height: "100vh", backgroundColor: "rgb(74, 35, 90)" }}>
@@ -39,11 +82,14 @@ const SignUpPage = () => {
       >
         Create your account!
       </Typography>
+
       <Box
         sx={{
           backgroundColor: "rgb(23, 32, 42)",
           borderRadius: "20px",
+          width: "60%",
           padding: "1px",
+          margin: "0 auto",
           marginTop: "50px",
           display: "flex",
           flexDirection: "column",
@@ -149,6 +195,7 @@ const SignUpPage = () => {
           Submit
         </Button>
       </Box>
+      {notifAlert}
     </Box>
   );
 };
