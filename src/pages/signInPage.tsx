@@ -4,9 +4,7 @@ import { AuthenticationContext } from "../context/AuthenticationContext";
 import { useNavigate } from "react-router-dom";
 
 const SignInPage = () => {
-  const { signUpEmail, signUpNewPassword, setLoggedIn } = useContext(
-    AuthenticationContext
-  );
+  const { setLoggedIn } = useContext(AuthenticationContext);
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -22,7 +20,10 @@ const SignInPage = () => {
       return;
     }
 
-    if (email == signUpEmail && signUpNewPassword == password) {
+    if (
+      email == localStorage.getItem("email") &&
+      localStorage.getItem("password") == password
+    ) {
       setLoggedIn(true);
       navigate("/");
     }
