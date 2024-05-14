@@ -37,7 +37,9 @@ const handleButton = ({
         }}
       >
         <Avatar src="/static/images/avatar/1.jpg" />
-        <Typography variant="body2">@handle</Typography>
+        <Typography sx={{ color: "white" }} variant="body2">
+          @handle
+        </Typography>
       </Button>
       {clicked && <LogOut />}
     </Box>

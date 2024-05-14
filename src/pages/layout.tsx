@@ -12,6 +12,7 @@ import { AuthenticationContext } from "../context/AuthenticationContext";
 const Layout = () => {
   const { icon } = useContext(IconHighlightContext);
   const { loggedIn } = useContext(AuthenticationContext);
+  console.log(loggedIn);
   return (
     <Box
       sx={{
@@ -50,11 +51,10 @@ const Layout = () => {
           <Button
             sx={{
               width: "100%",
-              color: "white",
               display: "flex",
               justifyContent: "start",
               paddingLeft: "20px",
-              backgroundColor: icon == "home" ? "orange" : "none",
+              color: icon == "home" ? "orange" : "white",
               gap: "20px",
               "&:hover": {
                 backgroundColor: "rgba(255, 255, 255, 0.2)",
@@ -70,11 +70,10 @@ const Layout = () => {
           <Button
             sx={{
               width: "100%",
-              color: "white",
               display: "flex",
               justifyContent: "start",
               paddingLeft: "20px",
-              backgroundColor: icon == "messages" ? "orange" : "none",
+              color: icon == "messages" ? "orange" : "white",
 
               gap: "20px",
               "&:hover": {
@@ -91,11 +90,10 @@ const Layout = () => {
           <Button
             sx={{
               width: "100%",
-              color: "white",
               display: "flex",
               justifyContent: "start",
               paddingLeft: "20px",
-              backgroundColor: icon == "profile" ? "orange" : "none",
+              color: icon == "profile" ? "orange" : "white",
 
               gap: "20px",
               "&:hover": {
