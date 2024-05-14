@@ -1,6 +1,7 @@
 import { Button, Box, Typography } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import { useState } from "react";
+import LogOut from "./LogOut";
 
 const handleButton = ({
   styles,
@@ -38,6 +39,7 @@ const handleButton = ({
         <Avatar src="/static/images/avatar/1.jpg" />
         <Typography variant="body2">@handle</Typography>
       </Button>
+      {clicked && <LogOut />}
     </Box>
   );
 };
