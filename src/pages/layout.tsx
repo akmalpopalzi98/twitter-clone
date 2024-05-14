@@ -7,9 +7,12 @@ import EmailIcon from "@mui/icons-material/Email";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import { useContext } from "react";
 import { IconHighlightContext } from "../context/IconHighlightContext";
+import { AuthenticationContext } from "../context/AuthenticationContext";
 
 const Layout = () => {
   const { icon } = useContext(IconHighlightContext);
+  const { loggedIn } = useContext(AuthenticationContext);
+  console.log(loggedIn);
   return (
     <Box
       sx={{
@@ -48,11 +51,10 @@ const Layout = () => {
           <Button
             sx={{
               width: "100%",
-              color: "white",
               display: "flex",
               justifyContent: "start",
               paddingLeft: "20px",
-              backgroundColor: icon == "home" ? "orange" : "none",
+              color: icon == "home" ? "orange" : "white",
               gap: "20px",
               "&:hover": {
                 backgroundColor: "rgba(255, 255, 255, 0.2)",
@@ -68,11 +70,10 @@ const Layout = () => {
           <Button
             sx={{
               width: "100%",
-              color: "white",
               display: "flex",
               justifyContent: "start",
               paddingLeft: "20px",
-              backgroundColor: icon == "messages" ? "orange" : "none",
+              color: icon == "messages" ? "orange" : "white",
 
               gap: "20px",
               "&:hover": {
@@ -89,11 +90,10 @@ const Layout = () => {
           <Button
             sx={{
               width: "100%",
-              color: "white",
               display: "flex",
               justifyContent: "start",
               paddingLeft: "20px",
-              backgroundColor: icon == "profile" ? "orange" : "none",
+              color: icon == "profile" ? "orange" : "white",
 
               gap: "20px",
               "&:hover": {
@@ -106,9 +106,11 @@ const Layout = () => {
             <Typography variant="h6">Profile</Typography>
           </Button>
         </Link>
-        <HandleButton
-          styles={{ height: "10%", marginTop: "100px", suggestedUser: false }}
-        />
+        {loggedIn && (
+          <HandleButton
+            styles={{ height: "10%", marginTop: "100px", suggestedUser: false }}
+          />
+        )}
       </Box>
       <Outlet />
     </Box>

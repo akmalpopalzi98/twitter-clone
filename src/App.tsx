@@ -1,12 +1,12 @@
 import { ThemeProvider, createTheme } from "@mui/material";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import HomePage from "./pages/homePage";
-// import SignUpPage from "./pages/signUpPage";
-// import SignInPage from "./pages/signInPage";
+import SignUpPage from "./pages/signUpPage";
 import LayOut from "./pages/layout";
 import ProfilePage from "./pages/profilePage";
 import MessagesPage from "./pages/messagesPage";
 import "./app.css";
+import SignInPage from "./pages/signInPage";
 
 const theme = createTheme({
   typography: {
@@ -34,6 +34,8 @@ function App() {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/messages" element={<MessagesPage />} />
           </Route>
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/signin" element={<SignInPage />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
