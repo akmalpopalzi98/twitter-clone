@@ -26,6 +26,8 @@ const SignInPage = () => {
     ) {
       setLoggedIn(true);
       navigate("/");
+    } else {
+      setNotif("Incorrect credentials");
     }
   };
 
