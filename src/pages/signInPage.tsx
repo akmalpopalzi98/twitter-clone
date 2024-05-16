@@ -1,6 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import { FormEvent, useContext, useState } from "react";
 import { AuthenticationContext } from "../context/AuthenticationContext";
+import { signIn } from "aws-amplify/auth";
 import { useNavigate } from "react-router-dom";
 
 const SignInPage = () => {
@@ -11,7 +12,7 @@ const SignInPage = () => {
   const [password, setPassord] = useState("");
   const [notif, setNotif] = useState("");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     console.log("Submitted");
     if (!email || !password) {
@@ -20,15 +21,29 @@ const SignInPage = () => {
       return;
     }
 
-    if (
-      email == localStorage.getItem("email") &&
-      localStorage.getItem("password") == password
-    ) {
-      setLoggedIn(true);
-      navigate("/");
-    } else {
-      setNotif("Incorrect credentials");
+    try {
+      const { isSignedIn } = await signIn({
+        username: email,
+        password,
+      });
+      if (isSignedIn) {
+        setLoggedIn(true);
+        navigate("/");
+      }
+    } catch (err: any) {
+      console.log(err);
+      setNotif(err.message);
     }
+
+    // if (
+    //   email == localStorage.getItem("email") &&
+    //   localStorage.getItem("password") == password
+    // ) {
+    //   setLoggedIn(true);
+    //   navigate("/");
+    // } else {
+    //   setNotif("Incorrect credentials");
+    // }
   };
 
   if (notif) {
@@ -107,6 +122,7 @@ const SignInPage = () => {
             onChange={(e) => {
               setPassord(e.target.value);
             }}
+            type="password"
           />
         </Box>
         <Button

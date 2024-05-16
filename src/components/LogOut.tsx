@@ -1,11 +1,13 @@
 import { Button, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import { AuthenticationContext } from "../context/AuthenticationContext";
+import { signOut } from "aws-amplify/auth";
 import { useContext } from "react";
 
 const LogOut = () => {
-  const { setLoggedIn, loggedIn } = useContext(AuthenticationContext);
-  const handleLogOut = () => {
+  const { setLoggedIn } = useContext(AuthenticationContext);
+  const handleLogOut = async () => {
+    await signOut();
     setLoggedIn(false);
   };
 
