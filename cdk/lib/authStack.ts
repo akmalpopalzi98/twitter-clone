@@ -16,7 +16,7 @@ export class AuthStack extends cdk.Stack {
       userPoolName: "twitter-clone-userpool",
       selfSignUpEnabled: true,
       userVerification: {
-        emailSubject: "Please verify your account by clicking on the link.",
+        emailSubject: "Please verify your account.",
         emailStyle: VerificationEmailStyle.LINK,
       },
       standardAttributes: {
