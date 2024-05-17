@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import { FormEvent, useContext, useState } from "react";
+import { signUp } from "aws-amplify/auth";
 import { AuthenticationContext } from "../context/AuthenticationContext";
 
 const SignUpPage = () => {
@@ -18,7 +19,7 @@ const SignUpPage = () => {
 
   const [notif, setNotif] = useState("");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     // Check if any field is blank
@@ -29,31 +30,47 @@ const SignUpPage = () => {
       !signUpNewPassword ||
       !signUpPasswordConfirm
     ) {
-      console.log("Please fill in all fields");
       setNotif("Please fill in all fields");
       return;
     }
 
     // Check if passwords match
     if (signUpNewPassword !== signUpPasswordConfirm) {
-      console.log("Passwords do not match");
       setNotif("Passwords do not match");
       return;
     }
 
-    // If all validations pass, proceed with submission
-    console.log("Form submitted successfully");
-    setNotif("Account created !");
-    localStorage.setItem("name", signUpName);
-    localStorage.setItem("username", signUpUsername);
-    localStorage.setItem("email", signUpEmail);
-    localStorage.setItem("password", signUpNewPassword);
+    try {
+      const { isSignUpComplete, userId, nextStep } = await signUp({
+        username: signUpEmail,
+        password: signUpNewPassword,
+        options: {
+          userAttributes: {
+            preferred_username: signUpUsername,
+            name: signUpName,
+          },
+        },
+      });
+
+      if (nextStep.signUpStep == "CONFIRM_SIGN_UP") {
+        setNotif(
+          "Please validate your account by cliking on the link sent to your email"
+        );
+        setSignUpEmail("");
+        setSignUpName("");
+        setSignUpPasswordConfirm("");
+        setSignUpNewPassword("");
+        setSignUpUsername("");
+      }
+    } catch (err: any) {
+      console.log(err.message);
+    }
   };
 
   if (notif) {
     setTimeout(() => {
       setNotif("");
-    }, 7000);
+    }, 9000);
   }
 
   const notifAlert = (
