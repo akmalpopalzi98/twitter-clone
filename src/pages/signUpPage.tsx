@@ -40,19 +40,37 @@ const SignUpPage = () => {
       return;
     }
 
-    // If all validations pass, proceed with submission
-    // console.log("Form submitted successfully");
-    // setNotif("Account created !");
-    // localStorage.setItem("name", signUpName);
-    // localStorage.setItem("username", signUpUsername);
-    // localStorage.setItem("email", signUpEmail);
-    // localStorage.setItem("password", signUpNewPassword);
+    try {
+      const { isSignUpComplete, userId, nextStep } = await signUp({
+        username: signUpEmail,
+        password: signUpNewPassword,
+        options: {
+          userAttributes: {
+            preferred_username: signUpUsername,
+            name: signUpName,
+          },
+        },
+      });
+
+      if (nextStep.signUpStep == "CONFIRM_SIGN_UP") {
+        setNotif(
+          "Please validate your account by cliking on the link sent to your email"
+        );
+        setSignUpEmail("");
+        setSignUpName("");
+        setSignUpPasswordConfirm("");
+        setSignUpNewPassword("");
+        setSignUpUsername("");
+      }
+    } catch (err: any) {
+      console.log(err.message);
+    }
   };
 
   if (notif) {
     setTimeout(() => {
       setNotif("");
-    }, 7000);
+    }, 9000);
   }
 
   const notifAlert = (

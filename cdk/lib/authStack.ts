@@ -4,6 +4,7 @@ import {
   Mfa,
   UserPool,
   UserPoolClient,
+  UserPoolDomain,
   VerificationEmailStyle,
 } from "aws-cdk-lib/aws-cognito";
 import { Construct } from "constructs";
@@ -40,6 +41,13 @@ export class AuthStack extends cdk.Stack {
     new UserPoolClient(this, "TwitterCloneClient", {
       generateSecret: false,
       userPool: twitterUserpool,
+    });
+
+    new UserPoolDomain(this, "TwitterAuthDomain", {
+      userPool: twitterUserpool,
+      cognitoDomain: {
+        domainPrefix: "my-twitter-clone",
+      },
     });
   }
 }
