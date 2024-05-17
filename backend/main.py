@@ -1,7 +1,14 @@
 from fastapi import FastAPI
 from routes import activities
 from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy.orm import Session
 
+import models
+
+from db import engine
+
+
+models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 
