@@ -16,11 +16,17 @@ const Activity = ({ activityItem }: { activityItem: ActivityType }) => {
 
   let formatedCreatedAtDate;
   if (createdAtTimeDiffDays >= 1) {
-    formatedCreatedAtDate = `${Math.round(createdAtTimeDiffDays)} days ago`;
+    formatedCreatedAtDate = `${Math.round(createdAtTimeDiffDays)} ${
+      createdAtTimeDiffDays == 1 ? "days ago" : "day ago"
+    }`;
   } else if (createdAtTimeDiffHours >= 1) {
-    formatedCreatedAtDate = `${Math.round(createdAtTimeDiffHours)} hours ago`;
+    formatedCreatedAtDate = `${Math.round(createdAtTimeDiffHours)} ${
+      createdAtTimeDiffHours == 1 ? "hour ago" : "hours ago"
+    }`;
   } else if (createdAtTimeDiffMinutes >= 1) {
-    formatedCreatedAtDate = `${Math.round(createdAtTimeDiffMinutes)} mins ago`;
+    formatedCreatedAtDate = `${Math.round(createdAtTimeDiffMinutes)} ${
+      createdAtTimeDiffMinutes == 1 ? "min ago" : "mins ago"
+    }`;
   } else {
     formatedCreatedAtDate = `just now`;
   }
@@ -32,17 +38,17 @@ const Activity = ({ activityItem }: { activityItem: ActivityType }) => {
 
   let formattedExpiresAtDate;
   if (expiresAtTimeDiffDays >= 1) {
-    formattedExpiresAtDate = `Expires in ${Math.round(
-      expiresAtTimeDiffDays
-    )} days`;
+    formattedExpiresAtDate = `Expires in ${Math.round(expiresAtTimeDiffDays)} ${
+      expiresAtTimeDiffDays == 1 ? "day" : "days"
+    }`;
   } else if (expiresAtTimeDiffHours >= 1) {
     formattedExpiresAtDate = `Expires in ${Math.round(
       expiresAtTimeDiffHours
-    )} hours`;
+    )} ${expiresAtTimeDiffHours == 1 ? "hour" : "hours"}`;
   } else if (expiresAtTimeDiffMinutes >= 1) {
     formattedExpiresAtDate = `Expires in ${Math.round(
       expiresAtTimeDiffMinutes
-    )} mins`;
+    )} ${expiresAtTimeDiffMinutes == 1 ? "min" : "mins"}`;
   } else {
     formattedExpiresAtDate = `Expires soon`;
   }
