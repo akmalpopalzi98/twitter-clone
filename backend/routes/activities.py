@@ -2,6 +2,7 @@ from typing import List
 from fastapi import APIRouter, HTTPException, status
 
 from services.home_activities import HomeActivities
+from services.activities_replies import ActivitiesReplies
 
 
 router = APIRouter(tags=["activities"])
@@ -13,3 +14,9 @@ def get_home_activities():
         return data
     raise HTTPException(status_code=status.HTTP_204_NO_CONTENT,detail="No data")
 
+@router.get("/homeactivitiesreplies",status_code=status.HTTP_200_OK)
+def get_reply_activities():
+    data = ActivitiesReplies.run()
+    if data != None:
+        return data
+    raise HTTPException(status_code=status.HTTP_204_NO_CONTENT,detail="No data")

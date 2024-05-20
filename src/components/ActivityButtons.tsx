@@ -4,7 +4,28 @@ import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import RepeatOutlinedIcon from "@mui/icons-material/RepeatOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import IosShareOutlinedIcon from "@mui/icons-material/IosShareOutlined";
-const ActivityButtons = () => {
+import { useEffect, useState } from "react";
+import axios from "axios";
+const ActivityButtons = ({ id }: { id: Number }) => {
+  const [activityReplies, setActivityReplies] = useState([]);
+
+  const fetchReplies = async () => {
+    try {
+      const response = await axios.get(
+        "http://127.0.0.1:8000/homeactivitiesreplies"
+      );
+      if (response.status == 200) {
+        setActivityReplies(response.data);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchReplies();
+  }, []);
+
   return (
     <Box
       sx={{

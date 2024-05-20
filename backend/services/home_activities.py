@@ -8,10 +8,9 @@ class HomeActivities:
         data = []
         try:
             conn = psycopg2.connect("postgresql://postgres:P0037979@localhost/twitterclone")
-            print("Connection successful")
             with conn:
                 with conn.cursor() as curr:
-                    curr.execute("SELECT * FROM activities JOIN users ON users.id = activities.user_id;") 
+                    curr.execute("SELECT * FROM activities JOIN users ON users.cognito_id = activities.user_id;") 
                     results = curr.fetchall()
                     col_names = [name[0] for name in curr.description]
                     for record in results:

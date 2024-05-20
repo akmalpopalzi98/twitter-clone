@@ -99,7 +99,7 @@ const Activity = ({ activityItem }: { activityItem: ActivityType }) => {
         </Box>
       </Box>
       <Box sx={{ height: "30%", marginTop: "10px" }}>
-        <ActivityButtons />
+        <ActivityButtons id={activityItem.activity_id} />
       </Box>
     </Box>
   );

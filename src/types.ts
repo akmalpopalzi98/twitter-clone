@@ -10,14 +10,11 @@ export interface Reply {
 }
 
 export interface ActivityType {
-  uuid: string;
+  activity_id: Number;
+  user_id: string;
   handle: string;
   name: string;
   message: string;
   created_at: string;
   expires_at: string;
-  likes_count: number;
-  replies_count: number;
-  repost_count: number;
-  replies: Reply[];
 }

@@ -22,7 +22,7 @@ class Activity(Base):
     __tablename__ = "activities"
 
     id = Column(Integer, primary_key=True)
-    user_id = Column( Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    user_id = Column( String, ForeignKey("users.cognito_id", ondelete="CASCADE"), nullable=False)
     message = Column(Text, nullable=False)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text("NOW()"))
     expires_at = Column(TIMESTAMP(timezone=True), nullable=False)
@@ -37,8 +37,8 @@ class Reply(Base):
 
     id = Column(Integer, primary_key=True)
     activity_id = Column(Integer, ForeignKey("activities.id", ondelete="CASCADE"), nullable=False)
-    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
-    message = Column(Text, nullable=False)
+    user_id = Column(String, ForeignKey("users.cognito_id", ondelete="CASCADE"), nullable=False)
+    reply_message = Column(Text, nullable=False)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text("NOW()"))
   
 
