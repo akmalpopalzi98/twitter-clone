@@ -17,7 +17,7 @@ const Activity = ({ activityItem }: { activityItem: ActivityType }) => {
   let formatedCreatedAtDate;
   if (createdAtTimeDiffDays >= 1) {
     formatedCreatedAtDate = `${Math.round(createdAtTimeDiffDays)} ${
-      createdAtTimeDiffDays == 1 ? "days ago" : "day ago"
+      createdAtTimeDiffDays == 1 ? "day ago" : "days ago"
     }`;
   } else if (createdAtTimeDiffHours >= 1) {
     formatedCreatedAtDate = `${Math.round(createdAtTimeDiffHours)} ${
