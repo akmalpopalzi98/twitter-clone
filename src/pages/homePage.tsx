@@ -19,7 +19,7 @@ const homePage = () => {
   };
 
   const renderedActivities = activityList.map((item: ActivityType) => {
-    return <Activity activityItem={item} />;
+    return <Activity activityItem={item} detailed={true} />;
   });
 
   useEffect(() => {
