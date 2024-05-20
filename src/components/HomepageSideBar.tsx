@@ -9,7 +9,6 @@ import { AuthenticationContext } from "../context/AuthenticationContext";
 
 const HomepageSideBar = () => {
   const { loggedIn } = useContext(AuthenticationContext);
-  console.log(loggedIn);
 
   const TrendingListItem = ({
     trendingData,

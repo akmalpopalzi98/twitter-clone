@@ -6,8 +6,12 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import IosShareOutlinedIcon from "@mui/icons-material/IosShareOutlined";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { ActivityReplyType } from "../types";
 const ActivityButtons = ({ id }: { id: Number }) => {
-  const [activityReplies, setActivityReplies] = useState([]);
+  const [activityReplies, setActivityReplies] = useState<ActivityReplyType[]>(
+    []
+  );
+  const [showReplies, setShowReplies] = useState(false);
 
   const fetchReplies = async () => {
     try {
@@ -26,6 +30,10 @@ const ActivityButtons = ({ id }: { id: Number }) => {
     fetchReplies();
   }, []);
 
+  const filteredItems = activityReplies.filter(
+    (activity) => activity.activity_id === id
+  );
+
   return (
     <Box
       sx={{
@@ -40,8 +48,13 @@ const ActivityButtons = ({ id }: { id: Number }) => {
         sx={{
           ...buttonsStyling,
         }}
+        onClick={() => {
+          setShowReplies(!showReplies);
+          console.log(id);
+        }}
       >
         <ModeCommentOutlinedIcon sx={{ color: "white" }} />
+        {filteredItems.length}
       </Button>
       <Button sx={{ ...buttonsStyling }}>
         <RepeatOutlinedIcon sx={{ color: "white" }} />

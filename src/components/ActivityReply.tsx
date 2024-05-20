@@ -1,11 +1,14 @@
 import { Avatar, Box, Typography } from "@mui/material";
 import ActivityButtons from "./ActivityButtons";
 
-import { ActivityType } from "../types";
+import { ActivityReplyType } from "../types";
 
-const Activity = ({ activityItem }: { activityItem: ActivityType }) => {
-  const created_date = new Date(activityItem.created_at);
-  const expire_date = new Date(activityItem.expires_at);
+const ActivityReply = ({
+  activityReplyItem,
+}: {
+  activityReplyItem: ActivityReplyType;
+}) => {
+  const created_date = new Date(activityReplyItem.created_at);
   const current_date = new Date();
 
   // Calculate time differences
@@ -29,28 +32,6 @@ const Activity = ({ activityItem }: { activityItem: ActivityType }) => {
     }`;
   } else {
     formatedCreatedAtDate = `just now`;
-  }
-
-  const expiresAtTimeDiffUnix = expire_date.getTime() - current_date.getTime();
-  const expiresAtTimeDiffMinutes = expiresAtTimeDiffUnix / (1000 * 60);
-  const expiresAtTimeDiffHours = expiresAtTimeDiffMinutes / 60;
-  const expiresAtTimeDiffDays = expiresAtTimeDiffHours / 24;
-
-  let formattedExpiresAtDate;
-  if (expiresAtTimeDiffDays >= 1) {
-    formattedExpiresAtDate = `Expires in ${Math.round(expiresAtTimeDiffDays)} ${
-      expiresAtTimeDiffDays == 1 ? "day" : "days"
-    }`;
-  } else if (expiresAtTimeDiffHours >= 1) {
-    formattedExpiresAtDate = `Expires in ${Math.round(
-      expiresAtTimeDiffHours
-    )} ${expiresAtTimeDiffHours == 1 ? "hour" : "hours"}`;
-  } else if (expiresAtTimeDiffMinutes >= 1) {
-    formattedExpiresAtDate = `Expires in ${Math.round(
-      expiresAtTimeDiffMinutes
-    )} ${expiresAtTimeDiffMinutes == 1 ? "min" : "mins"}`;
-  } else {
-    formattedExpiresAtDate = `Expires soon`;
   }
 
   return (
@@ -81,9 +62,11 @@ const Activity = ({ activityItem }: { activityItem: ActivityType }) => {
             wordWrap: "break-word",
           }}
         >
-          <Typography variant="body1">{activityItem.name}</Typography>
-          <Typography variant="body2">{activityItem.handle}</Typography>
-          <Typography variant="body1">{activityItem.message}</Typography>
+          <Typography variant="body1">{activityReplyItem.name}</Typography>
+          <Typography variant="body2">{activityReplyItem.handle}</Typography>
+          <Typography variant="body1">
+            {activityReplyItem.reply_message}
+          </Typography>
         </Box>
         <Box
           sx={{
@@ -95,14 +78,13 @@ const Activity = ({ activityItem }: { activityItem: ActivityType }) => {
           }}
         >
           <Typography variant="body1">{formatedCreatedAtDate}</Typography>
-          <Typography variant="body2">{formattedExpiresAtDate}</Typography>
         </Box>
       </Box>
       <Box sx={{ height: "30%", marginTop: "10px" }}>
-        <ActivityButtons id={activityItem.id} />
+        <ActivityButtons id={activityReplyItem.activity_id} />
       </Box>
     </Box>
   );
 };
 
-export default Activity;
+export default ActivityReply;
