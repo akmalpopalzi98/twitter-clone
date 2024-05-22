@@ -3,12 +3,16 @@ import HomepageSideBar from "../components/HomepageSideBar";
 import Activity from "../components/Activity";
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
-import { ActivityType } from "../types";
+import { ActivityReplyType, ActivityType } from "../types";
 import { IconHighlightContext } from "../context/IconHighlightContext";
 
 const homePage = () => {
   const { setIcon } = useContext(IconHighlightContext);
   const [activityList, setActivityList] = useState([]);
+  const [activityReplies, setActivityReplies] = useState<ActivityReplyType[]>(
+    []
+  );
+
   const fetchActivities = async () => {
     try {
       const response = await axios.get("http://127.0.0.1:8000/homeactivities");
@@ -18,12 +22,32 @@ const homePage = () => {
     }
   };
 
+  const fetchReplies = async () => {
+    try {
+      const response = await axios.get(
+        "http://127.0.0.1:8000/homeactivitiesreplies"
+      );
+      if (response.status == 200) {
+        setActivityReplies(response.data);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const renderedActivities = activityList.map((item: ActivityType) => {
-    return <Activity activityItem={item} detailed={true} />;
+    return (
+      <Activity
+        activityItem={item}
+        detailed={true}
+        activityReplies={activityReplies}
+      />
+    );
   });
 
   useEffect(() => {
     fetchActivities();
+    fetchReplies();
     setIcon("home");
   }, []);
   return (

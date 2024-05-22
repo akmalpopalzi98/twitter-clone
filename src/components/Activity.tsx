@@ -2,15 +2,17 @@ import { Avatar, Box, Typography, Modal } from "@mui/material";
 import ActivityButtons from "./ActivityButtons";
 import ActivityFullView from "./ActivityFullView";
 import ClickableBox from "./ClickableBox";
-import { ActivityType } from "../types";
+import { ActivityReplyType, ActivityType } from "../types";
 import { useState } from "react";
 
 const Activity = ({
   activityItem,
   detailed,
+  activityReplies,
 }: {
   activityItem: ActivityType;
   detailed: boolean;
+  activityReplies: ActivityReplyType[];
 }) => {
   const [detailedView, setDetailedView] = useState(false);
 
@@ -114,7 +116,10 @@ const Activity = ({
           </Box>
         </Box>
         <Box sx={{ height: "30%", marginTop: "10px" }}>
-          <ActivityButtons id={activityItem.id} />
+          <ActivityButtons
+            id={activityItem.id}
+            activityReplies={activityReplies}
+          />
         </Box>
       </ClickableBox>
       {detailed && (
@@ -139,7 +144,11 @@ const Activity = ({
               borderRadius: 2,
             }}
           >
-            <ActivityFullView activityItem={activityItem} />
+            <ActivityFullView
+              activityItem={activityItem}
+              activityReplies={activityReplies}
+              id={activityItem.id}
+            />
           </Box>
         </Modal>
       )}

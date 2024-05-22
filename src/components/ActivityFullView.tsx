@@ -1,8 +1,22 @@
 import Box from "@mui/material/Box";
 import Activity from "./Activity";
-import { ActivityType } from "../types";
+import { ActivityReplyType, ActivityType } from "../types";
+import ActivityReply from "./ActivityReply";
 
-const ActivityFullView = ({ activityItem }: { activityItem: ActivityType }) => {
+const ActivityFullView = ({
+  activityItem,
+  activityReplies,
+  id,
+}: {
+  activityItem: ActivityType;
+  activityReplies: ActivityReplyType[];
+  id: Number;
+}) => {
+  const filteredItems = activityReplies.filter(
+    (activity) => activity.activity_id === id
+  );
+
+  console.log(filteredItems);
   return (
     <Box
       sx={{
@@ -15,7 +29,11 @@ const ActivityFullView = ({ activityItem }: { activityItem: ActivityType }) => {
         width: "90%",
       }}
     >
-      <Activity activityItem={activityItem} detailed={false} />
+      <Activity
+        activityItem={activityItem}
+        detailed={false}
+        activityReplies={activityReplies}
+      />
     </Box>
   );
 };
