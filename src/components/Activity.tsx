@@ -4,6 +4,8 @@ import ActivityFullView from "./ActivityFullView";
 import ClickableBox from "./ClickableBox";
 import { ActivityReplyType, ActivityType } from "../types";
 import { useState } from "react";
+import { useContext } from "react";
+import { AuthenticationContext } from "../context/AuthenticationContext";
 
 const Activity = ({
   activityItem,
@@ -14,6 +16,7 @@ const Activity = ({
   detailed: boolean;
   activityReplies: ActivityReplyType[];
 }) => {
+  const { loggedIn } = useContext(AuthenticationContext);
   const [detailedView, setDetailedView] = useState(false);
 
   const created_date = new Date(activityItem.created_at);
@@ -122,7 +125,7 @@ const Activity = ({
           />
         </Box>
       </ClickableBox>
-      {detailed && (
+      {loggedIn && detailed && (
         <Modal
           open={detailedView}
           onClose={() => setDetailedView(false)}
