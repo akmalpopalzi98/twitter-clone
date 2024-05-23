@@ -6,7 +6,7 @@ import { IConstruct, Node } from "constructs";
 
 export type AmplifyBackend = Backend<{
   auth: ConstructFactory<BackendAuth>;
-  data: ConstructFactory<AmplifyData>;
+  data?: ConstructFactory<AmplifyData>;
 }>;
 
 export abstract class AmplifyStack implements IConstruct {
