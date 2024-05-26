@@ -16,7 +16,7 @@ export class UserPoolCustomDomain extends AmplifyStack {
     new UserPoolDomain(this, "TwitterAuthDomain", {
       userPool: props?.userpool,
       cognitoDomain: {
-        domainPrefix: "my-twitter-clone",
+        domainPrefix: "my-twitter-clone2",
       },
     });
   }

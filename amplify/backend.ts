@@ -8,7 +8,7 @@ const backend = defineBackend({
 
 const { cfnUserPool } = backend.auth.resources.cfnResources;
 cfnUserPool.userPoolName = "twittercloneuserpool2";
-cfnUserPool.emailConfiguration = { emailSendingAccount: "COGNITO-DEFAULT" };
+cfnUserPool.emailConfiguration = { emailSendingAccount: "COGNITO_DEFAULT" };
 
 const { userPool } = backend.auth.resources;
 
