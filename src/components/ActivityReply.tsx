@@ -5,8 +5,10 @@ import { ActivityReplyType } from "../types";
 
 const ActivityReply = ({
   activityReplyItem,
+  activityReplies,
 }: {
   activityReplyItem: ActivityReplyType;
+  activityReplies: ActivityReplyType[];
 }) => {
   const created_date = new Date(activityReplyItem.created_at);
   const current_date = new Date();
@@ -81,7 +83,10 @@ const ActivityReply = ({
         </Box>
       </Box>
       <Box sx={{ height: "30%", marginTop: "10px" }}>
-        <ActivityButtons id={activityReplyItem.activity_id} />
+        {/* <ActivityButtons
+          id={activityReplyItem.activity_id}
+          activityReplies={activityReplies}
+        /> */}
       </Box>
     </Box>
   );

@@ -20,6 +20,7 @@ export interface ActivityType {
 }
 
 export interface ActivityReplyType {
+  id: Number;
   handle: string;
   name: string;
   reply_message: string;

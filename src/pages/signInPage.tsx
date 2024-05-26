@@ -3,6 +3,7 @@ import { FormEvent, useContext, useState } from "react";
 import { AuthenticationContext } from "../context/AuthenticationContext";
 import { signIn } from "aws-amplify/auth";
 import { useNavigate } from "react-router-dom";
+import HandleButton from "../components/handleButton";
 
 const SignInPage = () => {
   const { setLoggedIn } = useContext(AuthenticationContext);
@@ -34,16 +35,6 @@ const SignInPage = () => {
       console.log(err);
       setNotif(err.message);
     }
-
-    // if (
-    //   email == localStorage.getItem("email") &&
-    //   localStorage.getItem("password") == password
-    // ) {
-    //   setLoggedIn(true);
-    //   navigate("/");
-    // } else {
-    //   setNotif("Incorrect credentials");
-    // }
   };
 
   if (notif) {

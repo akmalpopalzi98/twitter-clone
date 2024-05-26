@@ -5,22 +5,32 @@ import ActivityReply from "./ActivityReply";
 
 const ActivityFullView = ({
   activityItem,
-  activityReplies,
+  activityReplies = [],
   id,
 }: {
   activityItem: ActivityType;
   activityReplies: ActivityReplyType[];
   id: Number;
 }) => {
+  console.log(activityReplies);
   const filteredItems = activityReplies.filter(
     (activity) => activity.activity_id === id
   );
 
-  console.log(filteredItems);
+  const renderedReplies = filteredItems.map((reply, index) => {
+    return (
+      <ActivityReply
+        activityReplyItem={reply}
+        key={index}
+        activityReplies={activityReplies}
+      />
+    );
+  });
+
   return (
     <Box
       sx={{
-        backgroundColor: "red",
+        backgroundColor: "rgb( 23, 32, 42 )",
         borderBottom: "solid grey 1px",
         minHeight: "120px",
         maxHeight: "100vh",
@@ -34,6 +44,7 @@ const ActivityFullView = ({
         detailed={false}
         activityReplies={activityReplies}
       />
+      {renderedReplies}
     </Box>
   );
 };
