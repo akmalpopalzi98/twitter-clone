@@ -8,15 +8,10 @@ import MessagesPage from "./pages/messagesPage";
 import "./app.css";
 import SignInPage from "./pages/signInPage";
 import { Amplify } from "aws-amplify";
+import outputs from "../amplify_outputs.json";
 
-Amplify.configure({
-  Auth: {
-    Cognito: {
-      userPoolId: "us-east-1_tP07VSWGO",
-      userPoolClientId: "60ch77n588stac0hkni9mb06t4",
-    },
-  },
-});
+Amplify.configure(outputs);
+
 const theme = createTheme({
   typography: {
     body1: {

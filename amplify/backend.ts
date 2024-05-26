@@ -1,11 +1,17 @@
-import { defineBackend } from '@aws-amplify/backend';
-import { auth } from './auth/resource';
-import { data } from './data/resource';
+import { defineBackend } from "@aws-amplify/backend";
+import { auth } from "./auth/resource";
+import { UserPoolCustomDomain } from "./custom/userpooldomain/resource";
 
-/**
- * @see https://docs.amplify.aws/react/build-a-backend/ to add storage, functions, and more
- */
-defineBackend({
+const backend = defineBackend({
   auth,
-  data,
+});
+
+const { cfnUserPool } = backend.auth.resources.cfnResources;
+cfnUserPool.userPoolName = "twittercloneuserpool2";
+cfnUserPool.emailConfiguration = { emailSendingAccount: "COGNITO_DEFAULT" };
+
+const { userPool } = backend.auth.resources;
+
+new UserPoolCustomDomain(backend, "UserPoolDomainStack", {
+  userpool: userPool,
 });
