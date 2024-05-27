@@ -2,6 +2,7 @@ import { Button, Box, Typography } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import { useState } from "react";
 import LogOut from "./LogOut";
+import AddActivity from "./AddActivity";
 
 const handleButton = ({
   styles,
@@ -41,7 +42,12 @@ const handleButton = ({
           @handle
         </Typography>
       </Button>
-      {clicked && <LogOut />}
+      {clicked && (
+        <>
+          <LogOut />
+          <AddActivity />
+        </>
+      )}
     </Box>
   );
 };

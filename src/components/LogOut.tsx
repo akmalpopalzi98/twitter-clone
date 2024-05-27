@@ -17,6 +17,7 @@ const LogOut = () => {
         backgroundColor: "rgb(23, 32, 42)",
         borderRadius: "20px",
         textAlign: "center",
+        margin: "20px",
       }}
     >
       <Button
