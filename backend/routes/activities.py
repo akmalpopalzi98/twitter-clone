@@ -20,3 +20,7 @@ def get_reply_activities():
     if data != None:
         return data
     raise HTTPException(status_code=status.HTTP_204_NO_CONTENT,detail="No data")
+
+@router.post("/addhomeactivity",status_code=status.HTTP_201_CREATED)
+def add_activity():
+    pass
