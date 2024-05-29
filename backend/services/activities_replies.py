@@ -1,11 +1,15 @@
+import os
 import psycopg2
 from psycopg2 import OperationalError, Error
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class ActivitiesReplies:
     def run():
         data = []
         try:
-            conn = psycopg2.connect("postgresql://postgres:P0037979@localhost/twitterclone")
+            conn = psycopg2.connect(f"postgresql://postgres:{os.getenv('DB_PASSWORD')}@localhost/twitterclone")
             with conn:
                 with conn.cursor() as curr:
                     curr.execute("""
