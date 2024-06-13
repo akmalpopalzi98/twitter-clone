@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import HandleButton from "./handleButton";
@@ -97,6 +97,17 @@ const HomepageSideBar = () => {
           <SignInButton />
           <SignUpButton />
         </>
+      )}
+      {loggedIn && (
+        <Button
+          sx={{
+            width: "100%",
+            borderRadius: "20px",
+            backgroundColor: "rgb(23, 32, 42)",
+          }}
+        >
+          <Typography>Create Activity</Typography>
+        </Button>
       )}
     </Box>
   );

@@ -13,7 +13,7 @@ const Activity = ({
   activityReplies,
 }: {
   activityItem: ActivityType;
-  detailed: boolean;
+  detailed?: boolean;
   activityReplies: ActivityReplyType[];
 }) => {
   const { loggedIn } = useContext(AuthenticationContext);

@@ -107,9 +107,15 @@ const Layout = () => {
           </Button>
         </Link>
         {loggedIn && (
-          <HandleButton
-            styles={{ height: "10%", marginTop: "100px", suggestedUser: false }}
-          />
+          <>
+            <HandleButton
+              styles={{
+                height: "10%",
+                marginTop: "100px",
+                suggestedUser: false,
+              }}
+            />
+          </>
         )}
       </Box>
       <Outlet />

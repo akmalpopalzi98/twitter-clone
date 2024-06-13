@@ -12,7 +12,6 @@ const ActivityFullView = ({
   activityReplies: ActivityReplyType[];
   id: Number;
 }) => {
-  console.log(activityReplies);
   const filteredItems = activityReplies.filter(
     (activity) => activity.activity_id === id
   );
