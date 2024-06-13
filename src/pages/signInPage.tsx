@@ -46,12 +46,6 @@ const SignInPage = () => {
     }
   };
 
-  // if (notif) {
-  //   setTimeout(() => {
-  //     setNotif("");
-  //   }, 7000);
-  // }
-
   const notifAlert = (
     <Box
       sx={{
