@@ -124,14 +124,14 @@ const HomepageSideBar = () => {
         <Box
           sx={{
             position: "fixed",
-            top: "40%",
+            top: "30%",
             left: "50%",
             transform: "translate(-50%, -50%)",
             bgcolor: "rgb( 74, 35, 90 )",
             boxShadow: 24,
             p: 4,
-            width: "50%",
-            height: "40%",
+            width: "40%",
+            height: "20%",
             overflowX: "auto",
             borderRadius: 2,
           }}
