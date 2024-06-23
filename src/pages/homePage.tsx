@@ -77,7 +77,9 @@ const homePage = () => {
           <Typography sx={{ margin: "20px" }} variant="h6">
             Home
           </Typography>
-          <Box sx={{ overflow: "scroll", height: "780px" }}>
+          <Box
+            sx={{ overflow: "scroll", overflowX: "hidden", height: "780px" }}
+          >
             {renderedActivities}
           </Box>
         </Box>
