@@ -112,7 +112,7 @@ const Activity = ({
               position: "absolute",
               top: 0,
               right: 20,
-              // width: "20%",
+              width: "20%",
             }}
           >
             <Typography variant="body1">{formatedCreatedAtDate}</Typography>
