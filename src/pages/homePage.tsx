@@ -9,6 +9,7 @@ import { IconHighlightContext } from "../context/IconHighlightContext";
 const homePage = () => {
   const { setIcon } = useContext(IconHighlightContext);
   const [activityList, setActivityList] = useState([]);
+  const [refresh, setRefresh] = useState<boolean>(false);
   const [activityReplies, setActivityReplies] = useState<ActivityReplyType[]>(
     []
   );
@@ -76,10 +77,12 @@ const homePage = () => {
           <Typography sx={{ margin: "20px" }} variant="h6">
             Home
           </Typography>
-          <Box>{renderedActivities}</Box>
+          <Box sx={{ overflow: "scroll", height: "780px" }}>
+            {renderedActivities}
+          </Box>
         </Box>
       </Box>
-      <HomepageSideBar />
+      <HomepageSideBar setRefresh={setRefresh} />
     </Box>
   );
 };

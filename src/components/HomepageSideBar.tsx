@@ -8,7 +8,11 @@ import { useContext, useState } from "react";
 import { AuthenticationContext } from "../context/AuthenticationContext";
 import CreateAcitivtyForm from "./CreateActivityForm";
 
-const HomepageSideBar = () => {
+const HomepageSideBar = ({
+  setRefresh,
+}: {
+  setRefresh: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const { loggedIn } = useContext(AuthenticationContext);
   const [openModal, setOpenModal] = useState(false);
 
@@ -136,7 +140,10 @@ const HomepageSideBar = () => {
             borderRadius: 2,
           }}
         >
-          <CreateAcitivtyForm />
+          <CreateAcitivtyForm
+            setOpenModal={setOpenModal}
+            setRefresh={setRefresh}
+          />
         </Box>
       </Modal>
     </Box>

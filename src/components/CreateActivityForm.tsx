@@ -5,10 +5,16 @@ import { getCurrentUser } from "aws-amplify/auth";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const CreateAcitivtyForm = () => {
-  const [id, setId] = useState("");
-  const [notif, setNotif] = useState("");
-  const [message, setMessage] = useState("");
+const CreateAcitivtyForm = ({
+  setOpenModal,
+  setRefresh,
+}: {
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setRefresh: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  const [id, setId] = useState<string>("");
+  const [notif, setNotif] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
 
   const data = {
     user_id: "123e4567-e89b-12d3-a456-426614174000",
@@ -28,8 +34,9 @@ const CreateAcitivtyForm = () => {
     try {
       if (data.message.trim() !== "") {
         await axios.post("http://127.0.0.1:8000/addhomeactivity", data);
+        setOpenModal(false);
       } else {
-        throw new Error("string is empty");
+        throw new Error("text field is empty");
       }
     } catch (err) {
       if (err instanceof Error) {
