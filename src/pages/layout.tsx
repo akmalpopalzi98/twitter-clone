@@ -12,7 +12,6 @@ import { AuthenticationContext } from "../context/AuthenticationContext";
 const Layout = () => {
   const { icon } = useContext(IconHighlightContext);
   const { loggedIn } = useContext(AuthenticationContext);
-  console.log(loggedIn);
   return (
     <Box
       sx={{
