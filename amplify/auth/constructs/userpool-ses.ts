@@ -1,18 +1,14 @@
 import { IUserPool, UserPoolDomain } from "aws-cdk-lib/aws-cognito";
-import { AmplifyBackend, AmplifyStack } from "../../amplify-stack";
+import { Construct } from "constructs";
 import { StackProps } from "aws-cdk-lib";
 
 interface UserpoolDomainStackProps extends StackProps {
   userpool: IUserPool;
 }
 
-export class UserPoolCustomDomain extends AmplifyStack {
-  constructor(
-    backend: AmplifyBackend,
-    name: string,
-    props: UserpoolDomainStackProps
-  ) {
-    super(backend, name);
+export class UserpoolSes extends Construct {
+  constructor(scope: Construct, id: string, props: UserpoolDomainStackProps) {
+    super(scope, id);
     new UserPoolDomain(this, "TwitterAuthDomain", {
       userPool: props?.userpool,
       cognitoDomain: {

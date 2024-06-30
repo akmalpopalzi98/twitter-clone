@@ -1,17 +1,9 @@
 import { defineBackend } from "@aws-amplify/backend";
 import { auth } from "./auth/resource";
-import { UserPoolCustomDomain } from "./custom/userpooldomain/resource";
+import { CustomDataStack } from "./auth/stacks/custom-data-stack";
 
-const backend = defineBackend({
+export const backend = defineBackend({
   auth,
 });
 
-const { cfnUserPool } = backend.auth.resources.cfnResources;
-cfnUserPool.userPoolName = "twittercloneuserpool2";
-cfnUserPool.emailConfiguration = { emailSendingAccount: "COGNITO_DEFAULT" };
-
-const { userPool } = backend.auth.resources;
-
-new UserPoolCustomDomain(backend, "UserPoolDomainStack", {
-  userpool: userPool,
-});
+new CustomDataStack(backend, "customstack");
