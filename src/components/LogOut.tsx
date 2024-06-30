@@ -9,6 +9,7 @@ const LogOut = () => {
   const handleLogOut = async () => {
     await signOut();
     setLoggedIn(false);
+    localStorage.setItem("isLoggedIn", "false");
   };
 
   return (

@@ -37,7 +37,9 @@ const AuthenticationContext = createContext<AuthenticationContextType>({
 const AuthenticationContextProvider = ({
   children,
 }: AuthenticationContextProviderProps) => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn") == "true"
+  );
   const [signUpName, setSignUpName] = useState("");
   const [signUpUsername, setSignUpUsername] = useState("");
   const [signUpEmail, setSignUpEmail] = useState("");

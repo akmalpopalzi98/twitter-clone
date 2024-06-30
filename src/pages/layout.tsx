@@ -12,7 +12,6 @@ import { AuthenticationContext } from "../context/AuthenticationContext";
 const Layout = () => {
   const { icon } = useContext(IconHighlightContext);
   const { loggedIn } = useContext(AuthenticationContext);
-  console.log(loggedIn);
   return (
     <Box
       sx={{
@@ -107,9 +106,15 @@ const Layout = () => {
           </Button>
         </Link>
         {loggedIn && (
-          <HandleButton
-            styles={{ height: "10%", marginTop: "100px", suggestedUser: false }}
-          />
+          <>
+            <HandleButton
+              styles={{
+                height: "10%",
+                marginTop: "100px",
+                suggestedUser: false,
+              }}
+            />
+          </>
         )}
       </Box>
       <Outlet />

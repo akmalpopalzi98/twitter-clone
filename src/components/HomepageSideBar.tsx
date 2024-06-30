@@ -1,14 +1,20 @@
-import { Typography } from "@mui/material";
+import { Button, Modal, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import HandleButton from "./handleButton";
 import SignInButton from "./SignInButton";
 import SignUpButton from "./SignUpButton";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthenticationContext } from "../context/AuthenticationContext";
+import CreateAcitivtyForm from "./CreateActivityForm";
 
-const HomepageSideBar = () => {
+const HomepageSideBar = ({
+  setRefresh,
+}: {
+  setRefresh: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const { loggedIn } = useContext(AuthenticationContext);
+  const [openModal, setOpenModal] = useState(false);
 
   const TrendingListItem = ({
     trendingData,
@@ -98,6 +104,48 @@ const HomepageSideBar = () => {
           <SignUpButton />
         </>
       )}
+      {loggedIn && (
+        <Button
+          sx={{
+            width: "100%",
+            borderRadius: "20px",
+            backgroundColor: "rgb(23, 32, 42)",
+          }}
+          onClick={() => {
+            setOpenModal(true);
+          }}
+        >
+          <Typography>Create Activity</Typography>
+        </Button>
+      )}
+
+      <Modal
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        aria-labelledby="activity-full-view"
+        aria-describedby="detailed-view-of-activity"
+      >
+        <Box
+          sx={{
+            position: "fixed",
+            top: "30%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            bgcolor: "rgb( 74, 35, 90 )",
+            boxShadow: 24,
+            p: 4,
+            width: "40%",
+            height: "20%",
+            overflowX: "auto",
+            borderRadius: 2,
+          }}
+        >
+          <CreateAcitivtyForm
+            setOpenModal={setOpenModal}
+            setRefresh={setRefresh}
+          />
+        </Box>
+      </Modal>
     </Box>
   );
 };

@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
-import { FormEvent, useContext, useState } from "react";
+import { FormEvent, useContext, useEffect, useState } from "react";
 import { AuthenticationContext } from "../context/AuthenticationContext";
 import { signIn } from "aws-amplify/auth";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +12,14 @@ const SignInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassord] = useState("");
   const [notif, setNotif] = useState("");
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setNotif("");
+    }, 7000);
+
+    return () => clearTimeout(timer);
+  }, [notif]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -29,6 +37,7 @@ const SignInPage = () => {
       });
       if (isSignedIn) {
         setLoggedIn(true);
+        localStorage.setItem("isLoggedIn", "true");
         navigate("/");
       }
     } catch (err: any) {
@@ -36,12 +45,6 @@ const SignInPage = () => {
       setNotif(err.message);
     }
   };
-
-  if (notif) {
-    setTimeout(() => {
-      setNotif("");
-    }, 7000);
-  }
 
   const notifAlert = (
     <Box
@@ -128,6 +131,7 @@ const SignInPage = () => {
         </Button>
       </Box>
       {notifAlert}
+      {/* <HandleButton styles={{ height: "200px", suggestedUser: false }} /> */}
     </Box>
   );
 };

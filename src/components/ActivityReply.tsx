@@ -2,6 +2,7 @@ import { Avatar, Box, Typography } from "@mui/material";
 import ActivityButtons from "./ActivityButtons";
 
 import { ActivityReplyType } from "../types";
+import { formatCreatedAtDate } from "../utils/formatDate";
 
 const ActivityReply = ({
   activityReplyItem,
@@ -10,32 +11,7 @@ const ActivityReply = ({
   activityReplyItem: ActivityReplyType;
   activityReplies: ActivityReplyType[];
 }) => {
-  const created_date = new Date(activityReplyItem.created_at);
-  const current_date = new Date();
-
-  // Calculate time differences
-  const createdAttimeDiffUnix = current_date.getTime() - created_date.getTime();
-  const createdAtTimeDiffMinutes = createdAttimeDiffUnix / (1000 * 60);
-  const createdAtTimeDiffHours = createdAtTimeDiffMinutes / 60;
-  const createdAtTimeDiffDays = createdAtTimeDiffHours / 24;
-
-  let formatedCreatedAtDate;
-  if (createdAtTimeDiffDays >= 1) {
-    formatedCreatedAtDate = `${Math.round(createdAtTimeDiffDays)} ${
-      createdAtTimeDiffDays == 1 ? "day ago" : "days ago"
-    }`;
-  } else if (createdAtTimeDiffHours >= 1) {
-    formatedCreatedAtDate = `${Math.round(createdAtTimeDiffHours)} ${
-      createdAtTimeDiffHours == 1 ? "hour ago" : "hours ago"
-    }`;
-  } else if (createdAtTimeDiffMinutes >= 1) {
-    formatedCreatedAtDate = `${Math.round(createdAtTimeDiffMinutes)} ${
-      createdAtTimeDiffMinutes == 1 ? "min ago" : "mins ago"
-    }`;
-  } else {
-    formatedCreatedAtDate = `just now`;
-  }
-
+  const createdAt = formatCreatedAtDate(activityReplyItem.created_at);
   return (
     <Box
       sx={{
@@ -79,7 +55,7 @@ const ActivityReply = ({
             right: 20,
           }}
         >
-          <Typography variant="body1">{formatedCreatedAtDate}</Typography>
+          <Typography variant="body1">{createdAt}</Typography>
         </Box>
       </Box>
       <Box sx={{ height: "30%", marginTop: "10px" }}>
